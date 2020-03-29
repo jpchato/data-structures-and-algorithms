@@ -16,7 +16,7 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   for (let i=0; i<=str.length; i++){
-    result.push(str.slice[i]);
+    result.push(str.slice(i))
   }
   // Solution code here...
   return result;
@@ -98,6 +98,8 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  let xyz = gruffaloCrumble.ingredients
+  let abc = xyz.split(' ')
   return result;
 };
 
@@ -114,6 +116,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  gruffaloCrumble.steps.forEach((recipe) => {
+    let verb = recipe.split(' ');
+    result.push(verb[0]);
+  })
   return result;
 };
 
@@ -132,6 +138,12 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+  for(let i = arr.length; i > 0; i--){
+    if(arr[i-1] % 2 ===0){
+      arr.splice(i - 1, 1);
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
