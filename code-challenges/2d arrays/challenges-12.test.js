@@ -23,8 +23,18 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  let hourlyTotals = [];
+  for (let i = 0; i < hoursOpen.length; i++){
+    let hour = [];
+    stores.forEach(function (element) {
+      hour.push(element[i]);
+    });
+    let sum = hour.reduce(function(a,b) {
+      return a + b;
+    });
+    hourlyTotals.push(sum);
+  }
+  return (hourlyTotals)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,7 +48,14 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let hourlyObject = [];
+  hours.forEach((hour, index) => {
+    hourlyObject.push({
+      sales: `${data[index]} cookies`,
+      time: hour
+    });
+  });
+  return hourlyObject;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,7 +77,7 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  return (errands[2].items[1].quantity);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -82,7 +99,12 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+  if(board[row][col] === ' '){
+    return('miss');
+  }
+  if(board[row][col]==='#'){
+    return('hit')
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,7 +116,13 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let product = 1;
+  for(let row = 0; row < numbers.length; row++){
+    for(let col = 0; col < numbers[row].length; col++) {
+      product = product * numbers[row][col];
+    }
+  }
+  return product;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,7 +142,15 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  let sumTemp = 0;
+  let numTemp = 0;
+  for (let row = 0; row<weather.length; row++){
+    for(let col = 0; col<weather[row].length; col++){
+      sumTemp = sumTemp + weather[row][col];
+      numTemp++;
+    }
+  }
+  return sumTemp / numTemp;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +171,17 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let temp = [];
+  weather.forEach(function(element){
+    if (element.length > 0)
+    temp.push(element.reduce(function (a,b){
+      return a+ b;
+    }) /element.length);
+  })
+  let low = temp.sort((a, b) => {
+    return a - b;
+  })
+  return low[0];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -151,7 +197,17 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let arrReturn = [];
+  let strArray = str.split('\n');
+  for (let i = 0; i < strArray.length; i++){
+    let subStrArray = strArray[i].split(',');
+    let sumArray = 0;
+    for (let j = 0; j < subStrArray.length; j++){
+      sumArray += new Number(subStrArray[j])
+    }
+    arrReturn.push(sumArray);
+  }
+  return arrReturn;
 };
 
 /* ------------------------------------------------------------------------------------------------
