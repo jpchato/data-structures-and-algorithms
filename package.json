@@ -1,16 +1,20 @@
 {
-  "name": "3-code-challenges",
+  "name": "data-structures-and-algorithms",
   "version": "1.0.0",
-  "description": "",
+  "description": "Data Structures, Algorithms, Code Challenges",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --verbose",
-    "watch": "jest --watchAll"
+    "get-challenge": "`which bash` ./code-challenges/get-challenge.sh",
+    "test": "jest --verbose --coverage",
+    "lint": "eslint '**/*.js'"
   },
-  "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "jest": "^24.1.0"
+    "cheerio": "^1.0.0-rc.3",
+    "mustache": "^4.0.1",
+    "supertest": "^4.0.2",
+    "eslint": "^7.2.0",
+    "jest": "^26.0.1"
   }
 }
